@@ -1,15 +1,15 @@
 # Home Test 
 
-This is a CQRS event driven and event store exercise composed of 4 components:
+The application has been designed following the DDD (Domain Driven Design principles):
+
+    CQRS event driven and event store exercise composed of 4 components:
 
 a. Catalog microservice which manage catalogs of products
 b. Order microservice which manage orders of products
 c. EventBus implemented by AxonServer
 d. A relational DB 
 
-The application has been designed following the DDD (Domain Driven Design principles). 
-
-The tecnologies used are:
+The tecnologies adopted are:
 
     Axon framework
     Spring Boot
@@ -21,7 +21,7 @@ The tecnologies used are:
 
 Users by 2 RESTful API can manage a catalog of products and prepare Orders. 
 
-# Installation
+# How to build
 
 We need to build 2 microservices : catalog-service and order-service
 
@@ -30,12 +30,9 @@ This project requires JDK 8 and maven for building and testing it.
 Install Java on linux using this command:
 
     sudo apt-get install openjdk-8-jdk
-
-## Install maven
-
     sudo apt-get install maven
 
-# Build
+## Build the microservices
 
     cd catalog-service
     ./mvnw clean package
@@ -72,14 +69,35 @@ Under the command screen, you can also see the history of the command/events exe
     docker stop <id>>  <--  stop an image
     docker rm axonserver <-- rm an image
 
+# Start the services
 
-## SWAGGER access
+    cd catalog-service
+    ./mvnw spring-boot:run
+
+    cd order-service
+    ./mvnw spring-boot:run
+
+##### IntelliJ Editor settings
+
+For Intellij users please make sure you add the annotation processor for Lombok 
+
+    File/Settings/Annotation processor  -->  Make sure the checkbox: Enable annotation processor is selected.
+
+The services can be executed from the IDE. For Ultimate users by the Spring Boot plugin of Intellij
+
+## CLIENTS - Swagger and Vaadin
 
 In order to access the REST API we run the Swagger UI for both services
 
     http://localhost:8080/swagger-ui.html
     
     http://localhost:8081/swagger-ui.html
+    
+    http://localhost:8081     <---- Vaadin
+    
+If succesfully started you should be able to see the screen as in the pic:  
+    
+        VaadingScreen.png    
     
 ## Software Architecture
 
@@ -207,17 +225,14 @@ status of creating a catalog, adding a product and then finally issuing a Produc
 
 ## Aggregates
 
+In the order-service microservice (also called Bounded Context in DDD lingo) the aggregate is defined at:
+
     com/signore/demo/order/aggregate/OrderAggregate.java
+    
+In the catalog-service microservice (also called Bounded Context in DDD lingo) the aggregate is defined at:
 
-## IntelliJ Editor settings
-
-For Intellij Add the annotation processor for Lombok 
-
-    File/Settings/Annotation processor  -->  Make sure the checkbox: Enable annotation processor is selected.
-
-### Building the app from the sources
-
-To build the demo app, simply run the provided [Maven wrapper](https://www.baeldung.com/maven-wrapper):
+    org/signore/axon/catalog/aggregate/Catalog.java
+    
 
 ### Get all events from the Event Store
 
@@ -248,4 +263,23 @@ It becomes obvious that with the replay it is possible to pinpoint the state of 
         "payloadType": "com.signore.demo.order.api.CreatedOrderEvt"
       }
     ]
+
+# DISCLAIMER
+
+I have decided not to use the traditional stacked layer architecture because not only it is obsolete and not adapt 
+to cloud apps but in full honesty, I'm currently implementing a pet application with Axon and so any chance I have to 
+play with it, I take it. 
+
+And an home assignment is a perfect chance to do so. If the contract does not working out at least is a learning experience.
+
+Test coverage is not huge and so the application is not ready per production at all. Even if the coverage was 100% still it 
+is not read for showtime not being validate by proper QA. In any case I hope the testing approach came accross.
+
+Because of time limit and the complexity of the solution I did not go through all the corner cases so the app may have glitches
+here and there. But the principle and the idea I hope came accross.
+
+I hope you enjoyed the read as I did enjoy the coding.
+
+Regard
+Antonio 
 

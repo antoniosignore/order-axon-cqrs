@@ -16,7 +16,7 @@ public class SwaggerConfig {
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Test Microservice API")
+                .title("Order Microservice API")
                 .description("Home Assignment Microservice")
                 .license("MIT")
                 .licenseUrl("http://zerodueconsulting.com")
