@@ -110,12 +110,15 @@ The design is CQRS (Command Query Responsibility Segregation) well described by 
 In few words it consists in splitting the logic into a component the deals with state change operations (CREATE, UPDATE, DELETE) vs the 
 READ-ONLY Query side that responds to GET operations. 
 
-The models are separated and the QUERY side is optimized for the GET operation.
+The models are separated and the QUERY side is optimized for the GET operations.
 
-It is not the usual stacked-layer pattern of presentation/business/DAO/entities packaged as a monolith 
-that can only vertically (multiple copies of the whole monolith).
+In this exercise for instance the H2 Embedded database is used by both the Command side as well by the Read side but in completely separate 
+fashion: embedded in Axon the Command side to manage the aggregates and by JPA the Read side. 
 
-Entities are modeled as anemic pojo (no business logic but just a mapping of the SQL row).
+Axon offers a wide list of options for storage (SQL, Mongo, Redis) as well for EventBus (Kafka, Rabbit, ActiveMQ)
+
+It is not the usual stacked-layer pattern of presentation/business/DAO/entities packaged as a monolith that can only 
+vertically (multiple copies of the whole monolith): entities are modeled as anemic pojo (no business logic but just a mapping of the SQL row).
 
 In CQRS, the state is represented by rich objects that encapsulate business logic. 
 
@@ -143,6 +146,8 @@ in our example the URL paths are:
 
 The Order is the root and all the operation related to the products are always referred to the father order.
 
+The scaling is matter of replicating the services even if automatic scaling fashion.
+
 ## Event driven and EventStore
 
 The framework selected to help us is the Axon framework produced by a Dutch company called AxonIQ.
@@ -162,9 +167,10 @@ Success happens when teams start with a monolith and then as the project evolves
 
 One of the key properties that Axon offers to achieve this goal is the location transarency: 
 
-    the developer develop with specific java annotations without bothering about where the other components are located. 
+    the developer develops with specific java annotations without bothering about where the other components are located. 
 
-Axon offers a vast choice of adapters/bus technologies that can be select to realize the distribution as well the the event sourcing (i.e. Kafka, ActiveMQ, RabbitMq) as well several dataSources SQL and/or NO_Sql for the Query model projections and/or the validation side of the CommandModel
+Then it will be mapper of splitting the code and generate smaller components that can be deployed separately in the cloud and
+scale autonomously
 
 ## Features
 
