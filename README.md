@@ -284,7 +284,6 @@ is not read for showtime not being validate by proper QA. In any case I hope the
 Because of time limit and the complexity of the solution I did not go through all the corner cases so the app may have glitches
 here and there. But the principle and the idea I hope came accross.
 
-I hope you enjoyed the read as I did enjoy the coding.
 
 Regard
 Antonio 
