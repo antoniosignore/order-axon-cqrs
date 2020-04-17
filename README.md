@@ -1,8 +1,28 @@
 # Home Test 
 
+This is a CQRS event driven and event store exercise composed of 4 components:
+
+a. Catalog microservice which manage catalogs of products
+b. Order microservice which manage orders of products
+c. EventBus implemented by AxonServer
+d. A relational DB 
+
+The application has been designed following the DDD (Domain Driven Design principles). 
+
+The tecnologies used are:
+
+    Axon framework
+    Spring Boot
+    Swagger
+    H2 Embedded SQL database
+    Axon Server (docker)   <--- EventStore
+    Vaadin 
+
+Users by 2 RESTful API can manage a catalog of products and prepare Orders. 
+
 # Installation
 
-After pulled the code out if Github we need to build 2 microservices
+We need to build 2 microservices : catalog-service and order-service
 
 This project requires JDK 8 and maven for building and testing it.
 
@@ -53,26 +73,14 @@ http://localhost:8080
 
 ## SWAGGER access
 
+In order to access the REST API we run the Swagger UI for both services
+
     http://localhost:8080/swagger-ui.html
+    
     http://localhost:8081/swagger-ui.html
     
 ## Software Architecture
 
-The application has been implemented following the DDD (Domain Driven Design principles). Framework used:
-
-    Axon framework
-    Spring Boot
-    Swagger
-    H2 Embedded SQL database
-    Axon Server (docke)
-
-
-This is a CQRS exercise composed of 4 components:
-
-a. Catalog microservice which manage catalogs of products
-b. Order microservice which manage orders of products
-c. EventBus implemented with AxonServer
-d. A relational DB 
 
 CQRS is one possible implementation of DDD (Domain Driven Design)
 
