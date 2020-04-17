@@ -4,8 +4,10 @@ import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.signore.axon.catalog.aggregate.Catalog;
+import org.signore.axon.catalog.commands.ProductUpdateCommand;
 import org.signore.axon.catalog.commands.RegisterCatalogCommand;
 import org.signore.axon.catalog.commands.RegisterProductCommand;
+import org.signore.axon.catalog.commands.RemoveProductCommand;
 import org.signore.axon.catalog.models.CatalogBean;
 import org.signore.axon.catalog.models.ProductBean;
 import org.signore.axon.catalog.queries.GetCatalogQuery;
@@ -45,6 +47,18 @@ public class CatalogRestController {
 	public String addProduct(@PathVariable Integer catalog, @RequestBody ProductBean productBean) {
 		commandGateway.send(new RegisterProductCommand(catalog, productBean.getSku(), productBean.getLabel()));
 		return "Saved";
+	}
+
+	@DeleteMapping("/api/catalog/{catalog}/product")
+	public String deleteProduct(@PathVariable Integer catalog, @RequestBody ProductBean productBean) {
+		commandGateway.send(new RemoveProductCommand(catalog, productBean.getSku()));
+		return "Saved";
+	}
+
+	@PutMapping("/api/catalog/{catalog}/product")
+	public String updateProduct(@PathVariable Integer catalog, @RequestBody ProductBean productBean) {
+		commandGateway.send(new ProductUpdateCommand(catalog, productBean.getSku(), productBean.getLabel()));
+		return "Updated";
 	}
 
 	@GetMapping("/api/catalog/{catalog}/product")

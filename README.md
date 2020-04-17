@@ -15,8 +15,9 @@ The tecnologies used are:
     Spring Boot
     Swagger
     H2 Embedded SQL database
-    Axon Server (docker)   <--- EventStore
+    Axon Server  <--- EventStore
     Vaadin 
+    Docker
 
 Users by 2 RESTful API can manage a catalog of products and prepare Orders. 
 
@@ -54,6 +55,16 @@ To run we need to run the Axon Server that is the EventBus we are going to use i
 ## RUN Axon Dashboard 
 
     http://localhost:8024/
+    
+If the services are up and running you should be able to see screen as in the attached pic:
+
+    EventStoreDashboard.png
+    
+You should see the 2 microservices connected to the EventStore: the Axon Dashboard
+
+Under the command screen, you can also see the history of the command/events executed.
+
+    CommandEventsHistory.png
 
 #### Useful Docker command 
 
@@ -61,15 +72,6 @@ To run we need to run the Axon Server that is the EventBus we are going to use i
     docker stop <id>>  <--  stop an image
     docker rm axonserver <-- rm an image
 
-```
-./mvnw spring-boot:run
-```
-
-A simple Vaadin UX has been implemented for the Order service and available at:
-
-```
-http://localhost:8080
-```
 
 ## SWAGGER access
 
@@ -80,7 +82,6 @@ In order to access the REST API we run the Swagger UI for both services
     http://localhost:8081/swagger-ui.html
     
 ## Software Architecture
-
 
 CQRS is one possible implementation of DDD (Domain Driven Design)
 
@@ -188,7 +189,23 @@ This properties ensure maximum scalability.
 
 Axon provide test fictures that allow the user to write tests in given()/when()/expect() fashion which is
 formidable because allows the programmer to write the tests thinking about commands and events (or error) to
-be expected.
+be expected which is closer to a BDD approach to testing: the developer can test the sequence of event to set
+up the stage for testing a particular command: 
+
+    @Test
+    public void test_update_product() {
+        testFixture.given(
+                new CatalogCreatedEvent(1, "me"),
+                new ProductCreatedEvent(1, "me", "pomodoro"))
+                .when(new ProductUpdateCommand(1, "me_2", "big pomodoro"))
+                .expectSuccessfulHandlerExecution()
+                .expectEvents(new ProductUpdatedEvent(1, "me_2","big pomodoro"));
+    }
+
+In this example for example we test the Update operation of a product forcing a replay of the events to rebuild the 
+status of creating a catalog, adding a product and then finally issuing a ProductUpdateEvent. 
+
+
 
 ## Aggregates
 
