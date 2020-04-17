@@ -205,8 +205,6 @@ up the stage for testing a particular command:
 In this example for example we test the Update operation of a product forcing a replay of the events to rebuild the 
 status of creating a catalog, adding a product and then finally issuing a ProductUpdateEvent. 
 
-
-
 ## Aggregates
 
     com/signore/demo/order/aggregate/OrderAggregate.java
