@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0863d2c8-00b5-4e60-a084-3ae08a60c49e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/CURL.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/CatalogRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/aggregate/Catalog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/configuration/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/repository/LibraryProjector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/repository/ProductRepositoryProjector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/signore/demo/order/commandmodel/CatalogAggregateTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/logback-test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/LibraryRestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/aggregate/Library.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/commands/RegisterBookCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/commands/RegisterProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/commands/RegisterLibraryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/commands/RegisterCatalogCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/events/BookCreatedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/events/ProductCreatedEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/events/LibraryCreatedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/events/CatalogCreatedEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/models/BookBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/models/ProductBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/models/LibraryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/models/CatalogBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/queries/GetBooksQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/queries/GetCatalogQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/queries/GetLibraryQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/queries/GetProductsQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/repository/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/repository/ProductEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/signore/axon/catalog/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/repository/BookRepositoryProjector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library/repository/LibraryProjector.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1adq1KDlFMRkq9lDICqebXFXbqX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.sgitario.axon.library" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/sgitario/axon/library" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application (1)">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="bookstore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.sgitario.axon.library.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.sgitario.axon.library.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="catalog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.signore.axon.catalog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.signore.axon.catalog.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Application (1)" />
+        <item itemvalue="Spring Boot.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0863d2c8-00b5-4e60-a084-3ae08a60c49e" name="Default Changelist" comment="" />
+      <created>1587075601523</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587075601523</updated>
+      <workItem from="1587075608014" duration="1901000" />
+      <workItem from="1587077804778" duration="15000" />
+      <workItem from="1587077834286" duration="3681000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="70" y="21" width="1022" height="879" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587080192678">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state x="70" y="21" width="1022" height="879" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/70.27.1530.873@70.27.1530.873" timestamp="1587080192678" />
+    <state width="1484" height="267" key="GridCell.Tab.0.bottom" timestamp="1587081171859">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state width="1484" height="267" key="GridCell.Tab.0.bottom/70.27.1530.873@70.27.1530.873" timestamp="1587081171859" />
+    <state width="1484" height="267" key="GridCell.Tab.0.center" timestamp="1587081171858">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state width="1484" height="267" key="GridCell.Tab.0.center/70.27.1530.873@70.27.1530.873" timestamp="1587081171858" />
+    <state width="1484" height="267" key="GridCell.Tab.0.left" timestamp="1587081171857">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state width="1484" height="267" key="GridCell.Tab.0.left/70.27.1530.873@70.27.1530.873" timestamp="1587081171857" />
+    <state width="1484" height="267" key="GridCell.Tab.0.right" timestamp="1587081171858">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state width="1484" height="267" key="GridCell.Tab.0.right/70.27.1530.873@70.27.1530.873" timestamp="1587081171858" />
+    <state width="1484" height="267" key="GridCell.Tab.1.bottom" timestamp="1587081171861">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state width="1484" height="267" key="GridCell.Tab.1.bottom/70.27.1530.873@70.27.1530.873" timestamp="1587081171861" />
+    <state width="1484" height="267" key="GridCell.Tab.1.center" timestamp="1587081171860">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state width="1484" height="267" key="GridCell.Tab.1.center/70.27.1530.873@70.27.1530.873" timestamp="1587081171860" />
+    <state width="1484" height="267" key="GridCell.Tab.1.left" timestamp="1587081171859">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state width="1484" height="267" key="GridCell.Tab.1.left/70.27.1530.873@70.27.1530.873" timestamp="1587081171859" />
+    <state width="1484" height="267" key="GridCell.Tab.1.right" timestamp="1587081171860">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state width="1484" height="267" key="GridCell.Tab.1.right/70.27.1530.873@70.27.1530.873" timestamp="1587081171860" />
+    <state x="589" y="265" width="487" height="407" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1587079862971">
+      <screen x="70" y="27" width="1530" height="873" />
+    </state>
+    <state x="589" y="265" width="487" height="407" key="com.intellij.testIntegration.createTest.CreateTestDialog/70.27.1530.873@70.27.1530.873" timestamp="1587079862971" />
+  </component>
+</project>
