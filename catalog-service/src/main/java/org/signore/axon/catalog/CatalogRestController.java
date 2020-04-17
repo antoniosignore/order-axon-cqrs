@@ -1,25 +1,21 @@
 package org.signore.axon.catalog;
 
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.signore.axon.catalog.aggregate.Catalog;
-import org.signore.axon.catalog.commands.RegisterProductCommand;
 import org.signore.axon.catalog.commands.RegisterCatalogCommand;
-import org.signore.axon.catalog.models.ProductBean;
+import org.signore.axon.catalog.commands.RegisterProductCommand;
 import org.signore.axon.catalog.models.CatalogBean;
-import org.signore.axon.catalog.queries.GetProductsQuery;
+import org.signore.axon.catalog.models.ProductBean;
 import org.signore.axon.catalog.queries.GetCatalogQuery;
+import org.signore.axon.catalog.queries.GetProductsQuery;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 public class CatalogRestController {
@@ -45,13 +41,13 @@ public class CatalogRestController {
 		return future.get();
 	}
 
-	@PostMapping("/api/library/{catalog}/product")
+	@PostMapping("/api/catalog/{catalog}/product")
 	public String addProduct(@PathVariable Integer catalog, @RequestBody ProductBean productBean) {
 		commandGateway.send(new RegisterProductCommand(catalog, productBean.getSku(), productBean.getLabel()));
 		return "Saved";
 	}
 
-	@GetMapping("/api/library/{catalog}/product")
+	@GetMapping("/api/catalog/{catalog}/product")
 	public List<ProductBean> getProducts(@PathVariable Integer catalog) throws InterruptedException, ExecutionException {
 		return queryGateway.query(new GetProductsQuery(catalog), ResponseTypes.multipleInstancesOf(ProductBean.class)).get();
 	}

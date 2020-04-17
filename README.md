@@ -1,6 +1,71 @@
 # Home Test 
 
+# Installation
+
+After pulled the code out if Github we need to build 2 microservices
+
+This project requires JDK 8 and maven for building and testing it.
+
+Install Java on linux using this command:
+
+    sudo apt-get install openjdk-8-jdk
+
+## Install maven
+
+    sudo apt-get install maven
+
+# Build
+
+    cd catalog-service
+    ./mvnw clean package
+
+    cd order-service
+    ./mvnw clean package
+    
+
+## How to run
+
+To run we need to run the Axon Server that is the EventBus we are going to use in this example
+
+## Axon Server 
+
+    docker run -d --name axonserver -p 8024:8024 -p 8124:8124 axoniq/axonserver
+
+## RUN Axon Dashboard 
+
+    http://localhost:8024/
+
+#### Useful Docker command 
+
+    docker ps -a       <-- show current status of docker
+    docker stop <id>>  <--  stop an image
+    docker rm axonserver <-- rm an image
+
+```
+./mvnw spring-boot:run
+```
+
+A simple Vaadin UX has been implemented for the Order service and available at:
+
+```
+http://localhost:8080
+```
+
+## SWAGGER access
+
+    http://localhost:8080/swagger-ui.html
+    http://localhost:8081/swagger-ui.html
+    
 ## Software Architecture
+
+The application has been implemented following the DDD (Domain Driven Design principles). Framework used:
+
+    Axon framework
+    Spring Boot
+    Swagger
+    H2 Embedded SQL database
+    Axon Server (docke)
+
 
 This is a CQRS exercise composed of 4 components:
 
@@ -141,7 +206,6 @@ latest state of the aggregate.
 It becomes obvious that with the replay it is possible to pinpoint the state of any time of past with precision.
 
     curl --request GET  --url http://localhost:8080/events/34345678900666
-
     [
       {
         "type": "OrderAggregate",
@@ -161,80 +225,4 @@ It becomes obvious that with the replay it is possible to pinpoint the state of 
         "payloadType": "com.signore.demo.order.api.CreatedOrderEvt"
       }
     ]
-
-
-
-
-
-
-
-
-# Installation
-
-This project requires JDK 8 and maven for building and testing it.
-
-Install Java on linux using this command:
-
-    sudo apt-get install openjdk-8-jdk
-
-## Install maven
-
-    sudo apt-get install maven
-
-## Build
-
-    mvn clean package
-
-or    
-    ```
-    mvnw clean package
-    ```
-Note that for Mac OSX or Linux you probably have to add "`./`" in front of `mvnw`.
-
-
-## Test
-
-    mvn clean test
-
-There was no time to go higher. 
-
-## How to run
-
-To run we need to run the Axon Server that is the EventBus we are going to use in this example
-
-## Axon Server 
-
-    docker run -d --name axonserver -p 8024:8024 -p 8124:8124 axoniq/axonserver
-
-## RUN Axon Dashboard 
-
-    http://localhost:8024/
-
-#### Useful Docker command 
-
-    docker ps -a       <-- show current status of docker
-    docker stop <id>>  <--  stop an image
-    docker rm axonserver <-- rm an image
-
-```
-./mvnw spring-boot:run
-```
-
-A simple UX has been implemented in Vaadin and available at:
-
-```
-http://localhost:8080
-```
-
-The application has been implemented following the DDD (Domain Driven Design principles). Framework used:
-
-    Axon framework
-    Spring Boot
-    Swagger
-    H2 Embedded SQL database
-    Axon Server (docke)
-
-## SWAGGER access
-
-    http://localhost:8080/swagger-ui.html
 
